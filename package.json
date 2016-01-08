@@ -1,0 +1,29 @@
+{
+  "name": "saffyre",
+  "version": "1.0.0",
+  "description": "File-based routing middleware for Express.",
+  "main": "saffyre.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brombal/saffyre.js.git"
+  },
+  "keywords": [
+    "express",
+    "middleware",
+    "routing",
+    "filesystem",
+    "file"
+  ],
+  "author": "Alex Brombal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brombal/saffyre.js/issues"
+  },
+  "homepage": "https://github.com/brombal/saffyre.js#readme",
+  "dependencies": {
+    "chokidar": "^1.4.2",
+    "express": "^4.13.3",
+    "recursive-readdir": "^1.3.0",
+    "underscore": "^1.8.3"
+  }
+}

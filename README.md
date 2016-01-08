@@ -38,8 +38,8 @@ The `saffyre` method takes a directory path where it should look for files, and 
 second parameter of options (see below for details).
 
 Create the directory named `routes` (or whatever you chose to specify when you initialized
-Saffyre). Then add some files to it - the filename and path will become the url prefix
-that maps to that file.
+Saffyre). Then add some files to it - their paths and filenames will become the url prefix
+that maps to each file.
 
 ```
 File:                           URL Path prefix:
@@ -110,17 +110,23 @@ working up the directory structure.
 
 ## API
 
-The Saffyre module returns a function with the following signature:
+First, require Saffyre:
 
 ```js
-saffyre(path, options)
+var saffyre = require('saffyre');
 ```
 
-The return value of this method is an `express.Router` instance that can be used as
+`saffyre` is a function with the following signature:
+
+```js
+function saffyre(path, options)
+```
+
+The return value of this function is an `express.Router` instance that can be used as
 middleware.
 
 - `path` is the directory containing files that you want to map to url prefixes. This can
-  be an absolute directory or relative to the current working directory.
+  be absolute or relative to the current working directory.
 
 - `options` is an object containing configuration options for Saffyre:
 

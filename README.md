@@ -36,7 +36,7 @@ app.listen(8080, function() {
 
 The `saffyre` method takes a directory path where it should look for files.
 
-Create the directory named `routes` (or whatever you chose to specify when you initialized
+Then, create the directory named `routes` (or whatever you chose to specify when you initialized
 Saffyre). Then add some files to it - their paths and filenames will become the url prefix
 that maps to each file.
 

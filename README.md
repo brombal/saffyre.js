@@ -34,8 +34,7 @@ app.listen(8080, function() {
 });
 ```
 
-The `saffyre` method takes a directory path where it should look for files, and an optional
-second parameter of options (see below for details).
+The `saffyre` method takes a directory path where it should look for files.
 
 Create the directory named `routes` (or whatever you chose to specify when you initialized
 Saffyre). Then add some files to it - their paths and filenames will become the url prefix
@@ -119,7 +118,7 @@ var saffyre = require('saffyre');
 `saffyre` is a function with the following signature:
 
 ```js
-function saffyre(path, options)
+function saffyre(path)
 ```
 
 The return value of this function is an `express.Router` instance that can be used as
@@ -128,21 +127,15 @@ middleware.
 - `path` is the directory containing files that you want to map to url prefixes. This can
   be absolute or relative to the current working directory.
 
-- `options` is an object containing configuration options for Saffyre:
-
-    - `watch: true|false` - Watch the directory for changes. This is useful in
-      development when you want to make changes to route logic without needing to restart
-      your web application.
-
 
 The `express.Router` instance can be registered using Express's `app.use()` method,
 for example:
 
 ```js
-app.use(saffyre('routes', { watch: true }));
+app.use(saffyre('routes'));
 
 // Or, you can map the entire middleware to a prefix.
 // All registered files will be relative to the specified url path:
-app.use('saffyre/', saffyre('routes', { watch: true }));
+app.use('saffyre/', saffyre('routes'));
 ```
 

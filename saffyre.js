@@ -3,9 +3,8 @@
 var express = require('express');
 var readdir = require('recursive-readdir');
 var _ = require('underscore');
-var chokidar = require('chokidar');
 
-module.exports = function(dir, options) {
+module.exports = function (dir) {
 
     var saffyre = express.Router();
 
@@ -42,17 +41,6 @@ module.exports = function(dir, options) {
                     saffyre.use('/' + file.segments.join('/'), router);
                 }
             });
-        });
-    }
-
-    if (options.watch)
-    {
-        chokidar.watch(dir).on('all', function(event, file) {
-            if(event === 'change') {
-                saffyre.stack = [];
-                delete require.cache[require.resolve(file)];
-                loadFiles();
-            }
         });
     }
 

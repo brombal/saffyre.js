@@ -20,11 +20,12 @@
     "url": "https://github.com/brombal/saffyre.js/issues"
   },
   "homepage": "https://github.com/brombal/saffyre.js#readme",
-  "dependencies": {},
-  "devDependencies": {
-    "express": "^4.16.1",
+  "dependencies": {
     "recursive-readdir": "^2.2.1",
     "underscore": "^1.8.3"
+  },
+  "peerDependencies": {
+    "express": "^4.16.1"
   },
   "types": "./saffyre.d.ts"
 }

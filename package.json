@@ -25,5 +25,6 @@
     "express": "^4.16.1",
     "recursive-readdir": "^2.2.1",
     "underscore": "^1.8.3"
-  }
+  },
+  "types": "./saffyre.d.ts"
 }

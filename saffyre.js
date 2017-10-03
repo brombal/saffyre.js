@@ -4,19 +4,24 @@ var express = require('express');
 var readdir = require('recursive-readdir');
 var _ = require('underscore');
 
-module.exports = function (dir) {
+module.exports = function (dir, options) {
+  _.defaults(options, {
+    ext: ['js']
+  });
 
   var saffyre = express.Router();
 
   readdir(dir, function (e, files) {
 
+    var fileExtRegex = new RegExp('\\.(' + options.ext.join('|') + ')$');
+
     files = _.chain(files)
-      .filter(file => file.match(/\.js$/))
+      .filter(file => file.match(fileExtRegex))
       .map(file => {
         var path = file.replace(dir + '/', '');
         return {
-          segments: path.replace(/\.js$/, '').split('/'),
-          path: path.replace(/\.js$/, ''),
+          segments: path.replace(fileExtRegex, '').split('/'),
+          path: path.replace(fileExtRegex, ''),
           abspath: file
         }
       })

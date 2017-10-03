@@ -30,7 +30,7 @@ var saffyre = require('./saffyre');
 app.use(saffyre(__dirname + '/routes'));
 
 app.listen(8080, function() {
-	console.log('Listening...');
+  console.log('Listening...');
 });
 ```
 

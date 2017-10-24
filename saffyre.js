@@ -5,7 +5,7 @@ var readdir = require('recursive-readdir');
 var _ = require('underscore');
 
 module.exports = function (dir, options) {
-  _.defaults(options, {
+  options = _.defaults(options || {}, {
     ext: ['js']
   });
 
